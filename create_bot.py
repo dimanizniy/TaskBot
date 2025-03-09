@@ -6,7 +6,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from decouple import config
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-from db_handler.db_class import PostgresHandler
+from core.db_handler.db_class import PostgresHandler
 
 pg_db = PostgresHandler(config('PG_LINK'))
 scheduler = AsyncIOScheduler(timezone = "Europe/Moscow")

@@ -1,18 +1,5 @@
-#import asyncio
-#import asyncpg
-#
-#async def connect_db():
-#    conn = await asyncpg.connect(
-#        host="10.0.2.255",  # Например, 192.168.1.100
-#        port=5432,
-#        user="dimar",
-#        password="huinux",
-#        database="mydatabase"
-#    )
-#    return conn
-
-import asyncpg
 import asyncio
+import asyncpg
 import os
 
 class PostgresHandler:
@@ -45,7 +32,7 @@ class PostgresHandler:
     async def close(self):
         await self.pool.close()
 
-# Инициализация
+# Initialize
 pg_db = PostgresHandler(os.getenv("PG_LINK"))
 
 async def main():
@@ -55,6 +42,5 @@ async def main():
     users = await pg_db.fetch("SELECT * FROM users")
     print(users)
     await pg_db.close()
-
 
 asyncio.run(main())

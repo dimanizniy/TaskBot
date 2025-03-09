@@ -3,3 +3,5 @@ aiogram
 APScheduler
 python-decouple
 numpy
+environ
+aiohttp
